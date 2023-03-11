@@ -3,3 +3,63 @@
     padding: 0;
     box-sizing: border-box;
 }
+.container {
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+    color: blueviolet;
+    transition: all 0.5s ease-in;
+}
+
+img {
+    width: 100%;
+}
+
+.accordion__input {display: none;}
+.accordion__label{
+    position: relative;
+    display: block;
+    cursor: pointer;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-bottom: 1px solid blueviolet;
+    margin: 10px;
+}
+.label2::after{
+    content: '+';
+    font-size: 25px;
+    position: absolute;
+    top: 20%;
+    right: 15px;
+    transition: all 0.2s ease-in-out;
+}
+.label2::after{
+    display: none;
+}
+.accordion__content{
+    max-height: 0;
+    overflow: hidden;
+    width: 60%;
+    margin: 0 auto;
+    transition: all 0.5s ease-in-out;
+}
+.dropdown:hover  .accordion__content{
+    max-height: 200px;
+}
+.dropdown:hover  .label2::after{
+    transform: rotate(45deg);
+}
+.accordion__input:checked ~ .label2::after{
+    transform: rotate(45deg);
+}
+.accordion__input:checked ~ .accordion__content{
+    max-height: 200px;
+}
+.accordion__input:checked ~ .accordion__label{
+    color: #545454;
+}
+.container:hover .label2::after{
+    display: block;
+    color: #545454;
+}
